@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
-    class GameAndDeveloper
+    public  class GameAndDeveloper
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -24,8 +24,11 @@ namespace KQUYOZ_HFT_2023241.Models
         public virtual Developer Developer { get; set; }
 
         [NotMapped]
-        public virtual Game Game { get; set; }
+        public virtual Game Games { get; set; }
+        public GameAndDeveloper()
+        {
 
+        }
         public GameAndDeveloper(string initstr)
         {
             string[] split = initstr.Split(',');
