@@ -7,7 +7,6 @@ namespace KQUYOZ_HFT_2023241.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("GameId", TypeName = "int")]
         public int Id { get; set; }
 
         [StringLength(20)]
@@ -15,18 +14,7 @@ namespace KQUYOZ_HFT_2023241.Models
         public string Title { get; set; }
 
         [NotMapped]
-        public virtual Developer Developer { get; set; }
+        public virtual List<GameAndDeveloper> GameAndDeveloper { get; set; }
 
-        public Game()
-        {
-
-        }
-
-        public Game(string initstr)
-        {
-            string[] split = initstr.Split(',');
-            Id = int.Parse(split[0]);
-            Title = split[1];
-        }
     }
 }

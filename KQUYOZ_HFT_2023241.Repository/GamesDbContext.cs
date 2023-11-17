@@ -20,11 +20,15 @@ namespace KQUYOZ_HFT_2023241.Repository
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GameAndDeveloper>(gameanddeveloper => gameanddeveloper
-            .HasOne(entity => entity.Developer)
-            .WithMany(developer => developer.Games)
-            .HasForeignKey(entity => entity.DeveloperId)
-            );
+            modelBuilder.Entity<GameAndDeveloper>()
+                .HasOne(gad=>gad.Developer)
+                .WithMany(d=>d.GameAndDeveloper)
+                .HasForeignKey(gad => gad.DeveloperId);
+
+            modelBuilder.Entity<GameAndDeveloper>()
+                .HasOne(gad => gad.Game)
+                .WithMany(d => d.GameAndDeveloper)
+                .HasForeignKey(gad => gad.GameId);
 
             modelBuilder.Entity<Game>().HasData(new Game[]
                 {

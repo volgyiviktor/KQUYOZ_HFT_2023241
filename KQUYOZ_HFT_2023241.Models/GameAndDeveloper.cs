@@ -24,17 +24,6 @@ namespace KQUYOZ_HFT_2023241.Models
         public virtual Developer Developer { get; set; }
 
         [NotMapped]
-        public virtual Game Games { get; set; }
-        public GameAndDeveloper()
-        {
-
-        }
-        public GameAndDeveloper(string initstr)
-        {
-            string[] split = initstr.Split(',');
-            Id = int.Parse(split[0]);
-            DeveloperId = int.Parse(split[1]);
-            GameId = int.Parse(split[2]);
-        }
+        public virtual Game Game { get; set; }
     }
 }
