@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
-    public  class GameAndDeveloper
+    public class GameAndDeveloper
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
