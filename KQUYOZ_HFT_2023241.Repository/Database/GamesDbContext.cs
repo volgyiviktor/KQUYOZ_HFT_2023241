@@ -1,28 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using KQUYOZ_HFT_2023241.Models;
 
-namespace KQUYOZ_HFT_2023241.Repository
+namespace KQUYOZ_HFT_2023241.Repository.Database
 {
     public class GamesDbContext : DbContext
     {
         public DbSet<GameAndDeveloper> GameAndDevelopers { get; set; }
-        
+
         public GamesDbContext()
         {
-            this.Database.EnsureCreated();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             if (!builder.IsConfigured)
             {
-                builder.UseLazyLoadingProxies().UseInMemoryDatabase("games");
+                builder.UseLazyLoadingProxies().UseInMemoryDatabase("gamesDB");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GameAndDeveloper>()
-                .HasOne(gad=>gad.Developer)
-                .WithMany(d=>d.GameAndDeveloper)
+                .HasOne(gad => gad.Developer)
+                .WithMany(d => d.GameAndDeveloper)
                 .HasForeignKey(gad => gad.DeveloperId);
 
             modelBuilder.Entity<GameAndDeveloper>()
@@ -34,7 +34,7 @@ namespace KQUYOZ_HFT_2023241.Repository
                 {
                     new Game(){Id=1, Title="Call of Duty"},
                     new Game(){Id=2, Title="Battlefield"},
-                    new Game(){Id=3, Title="Star Wars Battlefront"},
+                    new Game(){Id=3, Title="Need for Speed"},
                     new Game(){Id=4, Title="Crash Bandicoot"},
                     new Game(){Id=5, Title="Uncharted"},
                 }
