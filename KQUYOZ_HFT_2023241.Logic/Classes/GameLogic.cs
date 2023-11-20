@@ -8,5 +8,6 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
 {
     public class GameLogic
     {
+
     }
 }
