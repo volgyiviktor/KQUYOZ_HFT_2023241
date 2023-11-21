@@ -18,8 +18,8 @@ namespace KQUYOZ_HFT_2023241.Models
         public int ReleaseYear {  get; set; }
 
         [Required]
-        [Range(0, 10)]
-        public int Rating { get; set; }
+        [Range(0, 100)]
+        public int Metascore { get; set; }
 
         [NotMapped]
         public virtual List<GameAndDeveloper> GameAndDeveloper { get; set; }
