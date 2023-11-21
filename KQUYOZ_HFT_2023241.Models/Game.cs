@@ -9,9 +9,17 @@ namespace KQUYOZ_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [StringLength(20)]
+        [StringLength(50)]
         [Required]
         public string Title { get; set; }
+
+        [Required]
+        [Range(1900, 2023)]
+        public int ReleaseYear {  get; set; }
+
+        [Required]
+        [Range(0, 10)]
+        public int Rating { get; set; }
 
         [NotMapped]
         public virtual List<GameAndDeveloper> GameAndDeveloper { get; set; }

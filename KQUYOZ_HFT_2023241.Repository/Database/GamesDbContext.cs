@@ -23,12 +23,14 @@ namespace KQUYOZ_HFT_2023241.Repository.Database
             modelBuilder.Entity<GameAndDeveloper>()
                 .HasOne(gad => gad.Developer)
                 .WithMany(d => d.GameAndDeveloper)
-                .HasForeignKey(gad => gad.DeveloperId);
+                .HasForeignKey(gad => gad.DeveloperId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<GameAndDeveloper>()
                 .HasOne(gad => gad.Game)
                 .WithMany(d => d.GameAndDeveloper)
-                .HasForeignKey(gad => gad.GameId);
+                .HasForeignKey(gad => gad.GameId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Game>().HasData(new Game[]
                 {
