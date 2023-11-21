@@ -21,8 +21,17 @@ namespace KQUYOZ_HFT_2023241.Models
         [Range(0, 100)]
         public int Metascore { get; set; }
 
+        [Required]
+        public int DeveloperId { get; set; }
+
+        [Required]
+        public int PublisherId { get; set; }
+
         [NotMapped]
-        public virtual List<GameAndDeveloper> GameAndDeveloper { get; set; }
+        public virtual Developer Developer { get; set; }
+
+        [NotMapped]
+        public virtual Publisher Publisher { get; set; }
 
     }
 }

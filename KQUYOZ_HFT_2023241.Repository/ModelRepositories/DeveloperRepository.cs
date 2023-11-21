@@ -12,13 +12,13 @@ namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 {
     public class DeveloperRepository : Repository<Developer>, IRepository<Developer>
     {
-        public DeveloperRepository(GamesDbContext ctx) : base(ctx)
+        public DeveloperRepository(GameDbContext ctx) : base(ctx)
         {
         }
 
         public override Developer Read(int id)
         {
-            return ctx.GameAndDevelopers.Select(t=>t.Developer).FirstOrDefault(t => t.Id == id);
+            return ctx.Games.Select(t=>t.Developer).FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Developer item)

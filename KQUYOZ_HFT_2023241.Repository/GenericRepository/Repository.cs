@@ -10,8 +10,8 @@ namespace KQUYOZ_HFT_2023241.Repository.GenericRepository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected GamesDbContext ctx;
-        public Repository(GamesDbContext ctx)
+        protected GameDbContext ctx;
+        public Repository(GameDbContext ctx)
         {
             this.ctx = ctx;
         }

@@ -1,4 +1,5 @@
-﻿using KQUYOZ_HFT_2023241.Models;
+﻿using KQUYOZ_HFT_2023241.Logic.Interfaces;
+using KQUYOZ_HFT_2023241.Models;
 using KQUYOZ_HFT_2023241.Repository.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Logic.Classes
 {
-    public class GameLogic
+    public class GameLogic : IGameLogic
     {
         IRepository<Game> repo;
 

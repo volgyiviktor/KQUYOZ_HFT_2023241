@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Logic.Interfaces
 {
-    public interface IGameAndDeveloperLogic
+    public interface IPublisherLogic
     {
-        void Create(GameAndDeveloper item);
+        void Create(Publisher item);
         void Delete(int id);
-        GameAndDeveloper Read(int id);
-        IQueryable<GameAndDeveloper> ReadAll();
-        void Update(GameAndDeveloper item);
+        Publisher Read(int id);
+        IQueryable<Publisher> ReadAll();
+        void Update(Publisher item);
     }
 }

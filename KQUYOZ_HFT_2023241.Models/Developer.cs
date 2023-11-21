@@ -19,6 +19,6 @@ namespace KQUYOZ_HFT_2023241.Models
         public string Name { get; set; }
 
         [NotMapped]
-        public virtual List<GameAndDeveloper> GameAndDeveloper { get; set; }
+        public virtual List<Game> Game { get; set; }
     }
 }

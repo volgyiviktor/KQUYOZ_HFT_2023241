@@ -5,24 +5,23 @@ using KQUYOZ_HFT_2023241.Repository.Intefaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 {
-    public class GameAndDeveloperRepository : Repository<GameAndDeveloper>, IRepository<GameAndDeveloper>
+    internal class PublisherRepository : Repository<Publisher>, IRepository<Publisher>
     {
-        public GameAndDeveloperRepository(GamesDbContext ctx) : base(ctx)
+        public PublisherRepository(GameDbContext ctx) : base(ctx)
         {
         }
 
-        public override GameAndDeveloper Read(int id)
+        public override Publisher Read(int id)
         {
-            return ctx.GameAndDevelopers.FirstOrDefault(t => t.Id == id);
+            return ctx.Games.Select(t => t.Publisher).FirstOrDefault(t => t.Id == id);
         }
 
-        public override void Update(GameAndDeveloper item)
+        public override void Update(Publisher item)
         {
             var old = Read(item.Id);
             foreach (var prop in old.GetType().GetProperties())

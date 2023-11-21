@@ -8,22 +8,17 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
-    public class GameAndDeveloper
+    public class Publisher
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [StringLength(50)]
         [Required]
-        public int DeveloperId { get; set; }
-
-        [Required]
-        public int GameId { get; set; }
+        public string Name { get; set; }
 
         [NotMapped]
-        public virtual Developer Developer { get; set; }
-
-        [NotMapped]
-        public virtual Game Game { get; set; }
+        public virtual List<Game> Game { get; set; }
     }
 }

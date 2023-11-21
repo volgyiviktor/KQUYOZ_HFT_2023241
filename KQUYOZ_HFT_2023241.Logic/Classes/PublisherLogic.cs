@@ -1,4 +1,5 @@
-﻿using KQUYOZ_HFT_2023241.Models;
+﻿using KQUYOZ_HFT_2023241.Logic.Interfaces;
+using KQUYOZ_HFT_2023241.Models;
 using KQUYOZ_HFT_2023241.Repository.Intefaces;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Logic.Classes
 {
-    public class GameAndDeveloperLogic
+    public class PublisherLogic : IPublisherLogic
     {
-        IRepository<GameAndDeveloper> repo;
+        IRepository<Publisher> repo;
 
-        public GameAndDeveloperLogic(IRepository<GameAndDeveloper> repo)
+        public PublisherLogic(IRepository<Publisher> repo)
         {
             this.repo = repo;
         }
 
-        public void Create(GameAndDeveloper item)
+        public void Create(Publisher item)
         {
             this.repo.Create(item);
         }
@@ -27,17 +28,17 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
             this.repo.Delete(id);
         }
 
-        public GameAndDeveloper Read(int id)
+        public Publisher Read(int id)
         {
             return this.repo.Read(id);
         }
 
-        public IQueryable<GameAndDeveloper> ReadAll()
+        public IQueryable<Publisher> ReadAll()
         {
             return this.repo.ReadAll();
         }
 
-        public void Update(GameAndDeveloper item)
+        public void Update(Publisher item)
         {
             this.repo.Update(item);
         }
