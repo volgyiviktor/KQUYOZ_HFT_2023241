@@ -42,5 +42,32 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
         {
             this.repo.Update(item);
         }
+
+
+
+        public IQueryable<Developer> AllDeveloperFromThatYear(int year)
+        {
+            return this.repo.ReadAll().Where(t=>t.ReleaseYear==year).Select(t=>t.Developer);
+        }
+
+        public IQueryable<Publisher> AllPublisherFromThatYear(int year)
+        {
+            return this.repo.ReadAll().Where(t => t.ReleaseYear == year).Select(t => t.Publisher);
+        }
+
+        public double AverageRatingOfDeveloperGames(int id)
+        {
+            return this.repo.ReadAll().Where(t => t.DeveloperId == id).Average(t => t.Metascore);
+        }
+
+        public double AverageRatingOfPublisherGames(int id)
+        {
+            return this.repo.ReadAll().Where(t => t.PublisherId == id).Average(t => t.Metascore);
+        }
+        public Developer DeveloperOfGameOfTheYear(int year)
+        {
+            return this.repo.ReadAll().Where(t => t.ReleaseYear == year).OrderByDescending(t => t.Metascore).Select(t => t.Developer).First();
+        }
+
     }
 }
