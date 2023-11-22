@@ -1,7 +1,7 @@
 ﻿using KQUYOZ_HFT_2023241.Models;
 using KQUYOZ_HFT_2023241.Repository.Database;
 using KQUYOZ_HFT_2023241.Repository.GenericRepository;
-using KQUYOZ_HFT_2023241.Repository.Intefaces;
+using KQUYOZ_HFT_2023241.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 
         public override Developer Read(int id)
         {
-            return ctx.Games.Select(t=>t.Developer).FirstOrDefault(t => t.Id == id);
+            return ctx.Games.Select(t => t.Developer).FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Developer item)

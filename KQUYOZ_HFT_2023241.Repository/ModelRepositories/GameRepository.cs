@@ -1,7 +1,7 @@
 ﻿using KQUYOZ_HFT_2023241.Models;
 using KQUYOZ_HFT_2023241.Repository.Database;
 using KQUYOZ_HFT_2023241.Repository.GenericRepository;
-using KQUYOZ_HFT_2023241.Repository.Intefaces;
+using KQUYOZ_HFT_2023241.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

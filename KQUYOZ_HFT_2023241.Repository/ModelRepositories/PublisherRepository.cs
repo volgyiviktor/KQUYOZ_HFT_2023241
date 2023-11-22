@@ -1,7 +1,7 @@
 ﻿using KQUYOZ_HFT_2023241.Models;
 using KQUYOZ_HFT_2023241.Repository.Database;
 using KQUYOZ_HFT_2023241.Repository.GenericRepository;
-using KQUYOZ_HFT_2023241.Repository.Intefaces;
+using KQUYOZ_HFT_2023241.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 {
-    internal class PublisherRepository : Repository<Publisher>, IRepository<Publisher>
+    public class PublisherRepository : Repository<Publisher>, IRepository<Publisher>
     {
         public PublisherRepository(GameDbContext ctx) : base(ctx)
         {

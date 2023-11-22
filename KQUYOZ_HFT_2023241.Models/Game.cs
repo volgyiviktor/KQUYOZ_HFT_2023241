@@ -1,5 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
@@ -15,7 +20,7 @@ namespace KQUYOZ_HFT_2023241.Models
 
         [Required]
         [Range(1900, 2023)]
-        public int ReleaseYear {  get; set; }
+        public int ReleaseYear { get; set; }
 
         [Required]
         [Range(0, 100)]
