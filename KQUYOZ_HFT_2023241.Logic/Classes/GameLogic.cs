@@ -20,6 +20,10 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
 
         public void Create(Game item)
         {
+            if (item.Title.Length < 2)
+            {
+                throw new ArgumentException("The title is too short");
+            }
             this.repo.Create(item);
         }
 
@@ -45,14 +49,14 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
 
 
 
-        public IQueryable<Developer> AllDeveloperFromThatYear(int year)
+        public List<Developer> AllDeveloperFromThatYear(int year)
         {
-            return this.repo.ReadAll().Where(t=>t.ReleaseYear==year).Select(t=>t.Developer);
+            return this.repo.ReadAll().Where(t=>t.ReleaseYear==year).Select(t=>t.Developer).ToList();
         }
 
-        public IQueryable<Publisher> AllPublisherFromThatYear(int year)
+        public List<Publisher> AllPublisherFromThatYear(int year)
         {
-            return this.repo.ReadAll().Where(t => t.ReleaseYear == year).Select(t => t.Publisher);
+            return this.repo.ReadAll().Where(t => t.ReleaseYear == year).Select(t => t.Publisher).ToList();
         }
 
         public double AverageRatingOfDeveloperGames(int id)

@@ -20,6 +20,10 @@ namespace KQUYOZ_HFT_2023241.Logic.Classes
 
         public void Create(Publisher item)
         {
+            if(item.Name.Length<2)
+            {
+                throw new ArgumentException("The name is too short");
+            }
             this.repo.Create(item);
         }
 

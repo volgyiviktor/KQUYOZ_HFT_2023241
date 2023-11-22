@@ -14,7 +14,7 @@ namespace KQUYOZ_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         [Required]
         public string Name { get; set; }
 

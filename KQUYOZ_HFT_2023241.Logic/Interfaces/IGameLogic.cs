@@ -15,8 +15,8 @@ namespace KQUYOZ_HFT_2023241.Logic.Interfaces
         IQueryable<Game> ReadAll();
         void Update(Game item);
 
-        IQueryable<Developer> AllDeveloperFromThatYear(int year);
-        IQueryable<Publisher> AllPublisherFromThatYear(int year);
+        List<Developer> AllDeveloperFromThatYear(int year);
+        List<Publisher> AllPublisherFromThatYear(int year);
         double AverageRatingOfDeveloperGames(int id);
         double AverageRatingOfPublisherGames(int id);
         Developer DeveloperOfGameOfTheYear(int year);
