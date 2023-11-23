@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace KQUYOZ_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PublisherController : ControllerBase
     {
