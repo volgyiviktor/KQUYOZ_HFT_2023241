@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace KQUYOZ_HFT_2023241.Endpoint.Controllers
+namespace KQUYOZ_HFT_2023241.EndPoint.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class StatController : ControllerBase
     {

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
@@ -18,6 +19,7 @@ namespace KQUYOZ_HFT_2023241.Models
         [Required]
         public string Name { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual List<Game> Game { get; set; }
     }

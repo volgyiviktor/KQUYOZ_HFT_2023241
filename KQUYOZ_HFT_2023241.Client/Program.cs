@@ -161,9 +161,60 @@ namespace KQUYOZ_HFT_2023241.Client
             }
         }
 
+        static void AllDeveloperFromThatYear()
+        {
+            Console.Write("Enter year: ");
+            int year = int.Parse(Console.ReadLine());
+            var items = rest.Get<List<Developer>>(year,"Stat/AllDeveloperFromThatYear");
+            foreach(var item in items)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadKey();
+        }
+
+        static void AllPublisherFromThatYear()
+        {
+            Console.Write("Enter year: ");
+            int year = int.Parse(Console.ReadLine());
+            var items = rest.Get<List<Publisher>>(year, "Stat/AllPublisherFromThatYear");
+            foreach (var item in items)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadKey();
+        }
+
+        static void AverageRatingOfDeveloperGames()
+        {
+            Console.Write("Enter developer's id: ");
+            int id = int.Parse(Console.ReadLine());
+            var item = rest.Get<double>(id, "Stat/AverageRatingOfDeveloperGames");
+            Console.WriteLine(item);
+            Console.ReadKey();
+        }
+
+        static void AverageRatingOfPublisherGames()
+        {
+            Console.Write("Enter publisher's id: ");
+            int id = int.Parse(Console.ReadLine());
+            var item = rest.Get<double>(id, "Stat/AverageRatingOfPublisherGames");
+            Console.WriteLine(item);
+            Console.ReadKey();
+        }
+        static void  DeveloperOfGameOfTheYear()
+        {
+            Console.Write("Enter year: ");
+            int year = int.Parse(Console.ReadLine());
+            var item = rest.Get<Developer>(year, "Stat/DeveloperOfGameOfTheYear");
+            Console.WriteLine(item.Name);
+            Console.ReadKey();
+        }
+
+
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:7645/", "game");
+            rest = new RestService("http://localhost:11963/", "game");
 
             var developerSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("Create", () => Create("Developer"))
@@ -189,10 +240,19 @@ namespace KQUYOZ_HFT_2023241.Client
                 .Add("Delete", () => Delete("Game"))
                 .Add("Exit", ConsoleMenu.Close);
 
+            var statSubMenu = new ConsoleMenu(args, level: 1)
+                .Add("AllDeveloperFromThatYear", () => AllDeveloperFromThatYear())
+                .Add("AllPublisherFromThatYear", () => AllPublisherFromThatYear())
+                .Add("AverageRatingOfDeveloperGames", () => AverageRatingOfDeveloperGames())
+                .Add("AverageRatingOfPublisherGames", () => AverageRatingOfPublisherGames())
+                .Add("DeveloperOfGameOfTheYear", () => DeveloperOfGameOfTheYear())
+                .Add("Exit", ConsoleMenu.Close);
+
             var menu = new ConsoleMenu(args, level: 0)
                 .Add("Developers", () => developerSubMenu.Show())
                 .Add("Publishers", () => publisherSubMenu.Show())
                 .Add("Games", () => gameSubMenu.Show())
+                .Add("Stat", () => statSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
 
             menu.Show();

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace KQUYOZ_HFT_2023241.Models
 {
@@ -32,9 +33,11 @@ namespace KQUYOZ_HFT_2023241.Models
         [Required]
         public int PublisherId { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual Developer Developer { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual Publisher Publisher { get; set; }
 
