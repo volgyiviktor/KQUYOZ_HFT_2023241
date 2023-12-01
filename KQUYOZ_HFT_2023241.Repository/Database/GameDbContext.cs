@@ -11,6 +11,8 @@ namespace KQUYOZ_HFT_2023241.Repository.Database
     public class GameDbContext : DbContext
     {
         public DbSet<Game> Games { get; set; }
+        public DbSet<Developer> Developers { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
 
         public GameDbContext()
         {

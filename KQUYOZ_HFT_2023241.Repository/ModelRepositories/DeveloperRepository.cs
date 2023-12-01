@@ -18,7 +18,7 @@ namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 
         public override Developer Read(int id)
         {
-            return ctx.Games.Select(t => t.Developer).FirstOrDefault(t => t.Id == id);
+            return ctx.Developers.FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Developer item)

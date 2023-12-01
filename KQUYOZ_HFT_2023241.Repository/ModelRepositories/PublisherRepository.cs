@@ -18,7 +18,7 @@ namespace KQUYOZ_HFT_2023241.Repository.ModelRepositories
 
         public override Publisher Read(int id)
         {
-            return ctx.Games.Select(t => t.Publisher).FirstOrDefault(t => t.Id == id);
+            return ctx.Publishers.FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Publisher item)
